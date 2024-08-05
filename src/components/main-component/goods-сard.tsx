@@ -1,7 +1,6 @@
 import { CardType } from '../../types/card';
 import { Link } from 'react-router-dom';
 import { AppRoute, STAR_COUNT } from '../../const/const';
-import { BasketCardType } from '../../types/basket';
 import { getBasket } from '../../services/order';
 
 type GoodsCardProps = {
@@ -13,10 +12,9 @@ type GoodsCardProps = {
 function GoodsCard({cardObj, onButtonClick}: GoodsCardProps): JSX.Element {
   const {id, name, category, reviewCount, price, rating, previewImg, previewImg2x, previewImgWebp} = cardObj;
   const newPrice = new Intl.NumberFormat('ru-RU').format(price);
-  
+
   const goodsBasket = getBasket();
   const currentDevice = goodsBasket ? goodsBasket.find((el) => Object.keys(el)[0] === String(id)) : null;
-  //const disabledButton = goodsBasket.some((el) => el === String(id));
 
   const handleListItemClick = () => {
     onButtonClick(id);
