@@ -8,6 +8,7 @@ import { StatusCodes } from 'http-status-codes';
 type DetailMessageType = {
   type: string;
   message: string;
+  messages: [string];
 }
 
 const StatusCodeMapping: Record<number, boolean> = {
@@ -35,11 +36,9 @@ export const createAPI = (): AxiosInstance => {
   api.interceptors.response.use(
     (response) => response,
     (error: AxiosError<DetailMessageType>) => {
-      //console.log(error)
-      //console.log(error.response)
       if (error.response && shouldDisplayError(error.response)) {
-        const detailMessage = (error.message);
-        toast.error(`Server Error: ${detailMessage}`, {
+        const detailMessage = (error.response.data);
+        toast.error(`Server Error: ${detailMessage.type}`, {
           position: toast.POSITION.TOP_CENTER
         });
 

@@ -9,6 +9,7 @@ import ScrollToTop from '../components/scroll-to-top/scroll-to-top';
 import { useAppSelector } from '../hooks';
 import { getIsGoodsLoadingState } from '../store/goods-data/goods-data.selectors';
 
+
 function App(): JSX.Element {
   const isGoodsDataLoading = useAppSelector(getIsGoodsLoadingState);
 

@@ -36,7 +36,6 @@ export function withStore(
   const axios = createAPI();
   const mockAxiosAdapter = new MockAdapter(axios);
   const middleware = [thunk.withExtraArgument(axios)];
-  //mockAxiosAdapter.onPost(`${APIRoute.Order}`).reply(201);
   const mockStoreCreator = configureMockStore<State, Action<string>, AppThunkDispatch>(middleware);
   const mockStore = mockStoreCreator(initialState);
 

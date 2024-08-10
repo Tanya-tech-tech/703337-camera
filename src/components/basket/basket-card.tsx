@@ -1,3 +1,4 @@
+
 import { getTotalPrice } from '../../utils/utils';
 import { useState } from 'react';
 import { ChangeEvent } from 'react';
@@ -116,9 +117,9 @@ const BasketCard = forwardRef(({basketCard, onDiscountChange, onListItemClick, i
           </button>
 
           <label className="visually-hidden" htmlFor="counter1"></label>
-          <input data-testid="inputElement" type="number" id="counter1" value={rangeCount()} min="1" max="9" aria-label="количество товара" onChange={handleInputChange}/>
+          <input type="number" id="counter1" value={rangeCount()} min="1" max="9" aria-label="количество товара" onChange={handleInputChange}/>
 
-          <button data-testid="addButtonElement" disabled={isDisable} className="btn-icon btn-icon--next" aria-label="увеличить количество товара" onClick={handleButtonAddClick}>
+          <button disabled={isDisable} className="btn-icon btn-icon--next" aria-label="увеличить количество товара" onClick={handleButtonAddClick}>
             <svg width="7" height="12" aria-hidden="true">
               <use xlinkHref="#icon-arrow"></use>
             </svg>
@@ -140,7 +141,7 @@ const BasketCard = forwardRef(({basketCard, onDiscountChange, onListItemClick, i
           <span className="visually-hidden">Общая цена:</span>{getTotalPrice(count, price)} ₽
         </div>
 
-        <button data-testid="deleteButtonElement" disabled={isDisable} className="cross-btn" type="button" aria-label="Удалить товар" onClick={handleButtonDelClick}>
+        <button disabled={isDisable} className="cross-btn" type="button" aria-label="Удалить товар" onClick={handleButtonDelClick}>
           <svg width="10" height="10" aria-hidden="true">
             <use xlinkHref="#icon-close"></use>
           </svg>

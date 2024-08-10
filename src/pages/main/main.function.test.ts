@@ -1,5 +1,6 @@
+import { name } from 'faker';
 import { makeFakeDeviceCard } from '../../utils/mocks';
-import { getCurrentCard } from '../../utils/utils';
+import { getCurrentCard, getSimilarCard } from '../../utils/utils';
 
 describe('Component: MainPage', () => {
   describe('Function: getCurrentCard', () => {

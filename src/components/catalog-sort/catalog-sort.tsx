@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../../hooks';
 import { getUpperCaseFirstLetter } from '../../utils/utils';
+
 import { useState, ChangeEvent } from 'react';
 import { setSortType, setSortOrder } from '../../store/sort-process/sort-process.slice';
 import { SortOrder } from '../../const/const';

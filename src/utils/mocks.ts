@@ -88,11 +88,10 @@ export const makeFakeUser = () => ({
 });
 
 export const makeFakeBasketCard = () =>({
-  [datatype.number({ min: 1, max: 40})]: {
+  [datatype.number({ min: 1, max: 20})]: {
     card: makeFakeDeviceCard(),
-    countDevice: datatype.number({ min: 2, max: 9}),
+    countDevice: datatype.number({ min: 2, max: 20}),
     basket: datatype.boolean(),
   }
 });
-
 

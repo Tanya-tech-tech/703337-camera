@@ -59,7 +59,7 @@ function BasketPage(): JSX.Element {
     try{
       setIsLoading(true);
       const responce = await dispatch(orderAction({camerasIds: orderArray, coupon: 'camera-333'}));
-
+      console.log(responce);
       if(responce.type === 'user/order/rejected') {
         dispatch(setIsSending(false));
         handleDiscChange();
@@ -68,10 +68,7 @@ function BasketPage(): JSX.Element {
       allDeleteBasket();
       handleDiscChange();
       dispatch(setIsSuccessPurchase(true));
-      setTimeout(() => {
-        navigate(AppRoute.Root);
-        dispatch(setIsSuccessPurchase(false));
-      }, 2000);
+      setTimeout(() => navigate(AppRoute.Root), 4000);
 
     } catch(err){
       dispatch(setError('Заказ не отправлен! Попробуйте еще раз'));
@@ -121,7 +118,7 @@ function BasketPage(): JSX.Element {
                   <p className="basket__summary-item"><span className="basket__summary-text">Всего:</span><span className="basket__summary-value">{total} ₽</span></p>
                   <p className="basket__summary-item"><span className="basket__summary-text">Скидка:</span><span className={cn('basket__summary-value', {'basket__summary-value--bonus': isNull})}>{discount} ₽</span></p>
                   <p className="basket__summary-item"><span className="basket__summary-text basket__summary-text--total">К оплате:</span><span className="basket__summary-value basket__summary-value--total">{getSummary(total, discount)} ₽</span></p>
-                  <button data-testid="submitButtonElement" onClick={() => void handleSubmitClick()} disabled={isDisable} className="btn btn--purple" type="submit">Оформить заказ
+                  <button onClick={() => void handleSubmitClick()} disabled={isDisable} className="btn btn--purple" type="submit">Оформить заказ
                   </button>
                 </div>
               </div>
