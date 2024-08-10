@@ -11,7 +11,7 @@ function BasketIcon(): JSX.Element | null{
       <svg width="16" height="16" aria-hidden="true">
         <use xlinkHref="#icon-basket"></use>
       </svg>
-      <span className="header__basket-count">{basketCount}</span>
+      <span data-testid="spanElement" className="header__basket-count">{basketCount}</span>
     </Link>
     : null);
 

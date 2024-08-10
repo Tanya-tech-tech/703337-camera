@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../hooks';
 import { getDeviceState } from '../../store/goods-data/goods-data.selectors';
+import { AppRoute } from '../../const/const';
 
 function Breadcrumbs(): JSX.Element {
-  const location = useLocation().pathname === '/';
+  const location = useLocation().pathname === AppRoute.Root;
+  const basketLocation = useLocation().pathname === AppRoute.Basket;
   const device = useAppSelector(getDeviceState);
-
+  const deviceName = device ? `${device?.category} ${device?.name}` : null;
 
   if(location){
 
@@ -53,7 +55,7 @@ function Breadcrumbs(): JSX.Element {
             </Link>
           </li>
 
-          <li className="breadcrumbs__item"><span className="breadcrumbs__link breadcrumbs__link--active">{device?.category} {device?.name}</span>
+          <li className="breadcrumbs__item"><span className="breadcrumbs__link breadcrumbs__link--active">{basketLocation ? 'Корзина' : deviceName}</span>
           </li>
 
         </ul>
