@@ -15,7 +15,6 @@ import { setIsModal } from '../../store/goods-data/goods-data.slice';
 import { FilterMemo } from '../../components/filter-form/filter-form';
 import CatalogSort from '../../components/catalog-sort/catalog-sort';
 
-
 function MainPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const goodsArray = useAppSelector(getGoodsState);
